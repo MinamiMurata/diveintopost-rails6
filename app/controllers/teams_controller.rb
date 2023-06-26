@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_team, only: %i[show edit update destroy]
+  before_action :set_team, only: %i[show edit update destroy change_owner]
   before_action :require_owner, only: :edit
 
   def index
@@ -10,6 +10,11 @@ class TeamsController < ApplicationController
   def show
     @working_team = @team
     change_keep_team(current_user, @team)
+  end
+
+  def change_owner
+    @team.update(owner_id: params[:owner_id])
+    redirect_to team_path(@team), notice: I18n.t("views.messages.owner_has_moved")
   end
 
   def new
@@ -60,6 +65,6 @@ class TeamsController < ApplicationController
   end
 
   def require_owner
-    redirect_to team_path(@team), notice: ("リーダー以外は編集できません") unless current_user.id == @team.owner.id
+    redirect_to team_path(@team), notice: I18n.t("views.messages.not_have_edit_permission") unless current_user.id == @team.owner.id
   end
 end

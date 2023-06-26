@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
   def change_owner
     @team.update(owner_id: params[:owner_id])
     redirect_to team_path(@team), notice: I18n.t("views.messages.owner_has_moved")
+    TeamMailer.change_owner_mail(@team).deliver
   end
 
   def new

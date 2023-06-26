@@ -254,7 +254,9 @@ ja:
       team_you_belong_to: '所属しているチーム'
       posted_articles: '投稿した記事一覧'
       not_have_edit_permission: '編集権限がありません'
-      owner_has_moved: 'オーナー権限が移動しました'
+      owner_has_moved: 'リーダー権限が移動しました'
+      assign_owner: 'あなたが、チームのリーダーにアサインされました！'
+      assign_owner_team: 'あなたは下記チームのリーダーになりました'
     button:
       submit: '投稿'
       edit: '編集'

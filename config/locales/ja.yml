@@ -257,6 +257,7 @@ ja:
       owner_has_moved: 'リーダー権限が移動しました'
       assign_owner: 'あなたが、チームのリーダーにアサインされました！'
       assign_owner_team: 'あなたは下記チームのリーダーになりました'
+      delete_agenda: 'アジェンダを削除しました'
     button:
       submit: '投稿'
       edit: '編集'
